@@ -28,15 +28,6 @@ function linkAction(){
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
-/*==================== ACCORDION SKILLS ====================*/
-
-
-/*==================== QUALIFICATION TABS ====================*/
-
-
-/*==================== SERVICES MODAL ====================*/
-
-
 /*==================== PORTFOLIO SWIPER  ====================*/
 let swiper = new Swiper('.swiper-container', {
   cssMode: true,
@@ -51,16 +42,43 @@ let swiper = new Swiper('.swiper-container', {
   },
 });
 
-/*==================== TESTIMONIAL ====================*/
+/*==================== GITHUB API DATA ====================*/
+var imgContainer = document.getElementById("home-img");
+var bioContainer = document.getElementById("home-data");
 
+fetch("https://api.github.com/users/noahbrown26")
+.then((result) => result.json())
+.then((data) => {
+  console.log(data)
 
-/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+  /*== AVATAR DATA ==*/
+  var img = document.createElement('img');
+  img.setAttribute('src', `${data.avatar_url}`);
+  img.setAttribute('id', 'profile-img');
+  imgContainer.appendChild(img);
 
+  /*== BIO DATA ==*/
+  var bio = document.createElement('p');
+  bio.setAttribute('class', "home__description");
+  bio.innerHTML = `${data.bio}`;
+  bioContainer.appendChild(bio);
+
+})
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/ 
-
+function scrollHeader(){
+  const nav = document.getElementById('header')
+  // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
+  if(this.scrollY >= 200) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)
 
 /*==================== SHOW SCROLL UP ====================*/ 
-
+function scrollUp(){
+  const scrollUp = document.getElementById('scroll-up');
+  // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
+  if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
 
 /*==================== DARK LIGHT THEME ====================*/ 
