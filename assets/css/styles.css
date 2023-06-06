@@ -129,6 +129,7 @@ img {
 .section__title, 
 .section__subtitle {
   text-align: center;
+  margin: 1rem;
 }
 
 /*==================== LAYOUT ====================*/
