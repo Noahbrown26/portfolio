@@ -78,7 +78,6 @@
 * {
   box-sizing: border-box;
   padding: 0;
-  margin: 0;
 }
 
 html {
@@ -113,7 +112,7 @@ img {
 
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
-  padding: 2rem 0 4rem;
+  padding: 2rem 0;
 }
 
 .section__title {
@@ -166,6 +165,10 @@ img {
 .nav__toggle {
   color: var(--title-color);
   font-weight: var(--font-medium);
+}
+
+.nav__logo{
+  margin-bottom: 2rem;
 }
 
 .nav__logo:hover {
@@ -508,7 +511,7 @@ img{
 
 .footer__bg{
   background-color: var(--first-color-second);
-  padding: 2rem 0 3rem;
+  padding: .5rem;
 }
 
 .footer__title{
@@ -522,7 +525,7 @@ img{
 
 .footer__links{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   row-gap: 1.5rem;
 }
 
@@ -551,8 +554,12 @@ img{
 .footer__link,
 .footer__social{
   color: #FFF;
+  padding: 1rem;
 }
   
+.footer__name{
+  justify-content: flex-start;
+}
 /*========== SCROLL UP ==========*/
 .scrollup{
   position: fixed;
@@ -655,9 +662,9 @@ body{
   margin: 0;
 }
 
-.section{
-  padding: 6rem 0 2rem;
-}
+ .section{
+  padding: 4rem 0 2rem;
+} 
 
 .section__subtitle{
   margin-bottom: 4rem;
@@ -719,9 +726,9 @@ body{
 
 /* For large devices */
 @media screen and (min-width: 1024px){
+
   .header,
-  .main,
-  .footer__container{
+  .main{
     padding: 0;
     
   }
@@ -757,5 +764,11 @@ body{
   .home__scroll{
     display: none;
   }
-  
+
+  .footer__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
